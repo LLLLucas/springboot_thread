@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="poolExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <!-- corePoolSize  -->
+        <property name="corePoolSize" value="2" />
+        <!-- 线程池维护线程的最大数量 -->
+        <property name="maxPoolSize" value="4"/>
+        <!-- 线程池所使用的缓冲队列 -->
+        <property name="queueCapacity" value="1000"/>
+        <!--线程池维护线程所允许的空闲时间 -->
+        <property name="keepAliveSeconds" value="3000"/>
+        <!-- 核心线程在空闲keepAliveSeconds后也timeout -->
+        <property name="allowCoreThreadTimeOut" value="true"/>
+        <!--线程名称 -->
+        <property name="threadNamePrefix" value="卢航ExecutorService-thread-" />
+    </bean>
+</beans>
